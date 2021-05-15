@@ -94,8 +94,8 @@ I added additional classes:
 - service/impl/ReportingStructureServiceImpl.java
 - controller/ReportingStructureConroller.java
 
-In order to provide the right structure within the MVC framework for the new type. The core method is recursive  <em>getDirectReports(Employee)</em> in <em>ReportingStructure.java</em>. It recursively explores all the reports of the root employer, as well as the reports of the root's reports and so on. While exploring it increments a global counter <em>numberOfReports</em>.
-I provided two constructors for <em>ReportingStructure</em>. One gets passed <em>Employee</em> type and <em>EmployeeRepository</em> from which it can retrieve all reports when in  <em>getDirectReports(Employee)</em>
+The core method in <em>ReportingStructure.java </em> is recursive <em>getDirectReports(Employee)</em>. It explores all the reports of the root employer, the reports of the root's reports and so on. It does so in a recursive depth-first search fashion. While exploring it increments a global counter <em>numberOfReports</em>.<br>
+I provided two constructors for <em>ReportingStructure</em>. One gets passed <em>Employee</em> type and <em>EmployeeRepository</em> from which it can retrieve all reports when in  <em>getDirectReports(Employee)</em>.
 
 ## Task 2
 
@@ -104,11 +104,10 @@ I added additional classes:
 - dao/CompensationRepository.java
 - service/CompensationService.java
 - service/impl/CompensationServiceImpl.java
-- controller/CompensationConroller.java
-I modified:
-- DataBootstrap.java
+- controller/CompensationConroller.java<br>
+- and I modified DataBootstrap.java
 
-The implementation of <em>Compensation</em> type is leargely based on the implementation of <em>Employee</em> type. In order to store a reference to the given <em>Employee</em> instance, I added a nested object with <em>employeeId</em> field to the <em>employee</em> field. This way when calling the GET endpoint, the <em>employee</em> field contains all null fields but <em>employeeId</em>. I decided for this implementation as storing a reference to an entire employee class with all the fields would be too heavy-weight.
+The implementation of <em>Compensation</em> type is leargely based on the implementation of <em>Employee</em> type. In order to store a reference to the given <em>Employee</em> instance, I added a nested object with <em>employeeId</em> field to the <em>employee</em> field. This way when calling the GET endpoint, the <em>employee</em> field contains all null fields but <em>employeeId</em>. I decided for this implementation as storing a reference to an entire employee class with all the fields would be too heavy-weight. The other empty contructor is used to facilitate calling the <em>getEntityFrom</em> function in a JUnit test which does not support passing contructor parameters.
 
 ## Testing
 
