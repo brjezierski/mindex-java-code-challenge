@@ -44,7 +44,7 @@ public class ReportingStructureServiceImplTest {
     }
 
     @Test
-    public void testCreateReadUpdate() {
+    public void testRead() {
         Employee employee = employeeRepository.findByEmployeeId("16a596ae-edd3-4847-99fe-c4518e82c86f");
 
 
@@ -55,9 +55,11 @@ public class ReportingStructureServiceImplTest {
         ReportingStructure testReportingStructure = new ReportingStructure(employee, employeeRepository);
 
         System.out.println("Employee id check: "+testReportingStructure.getEmployee().getEmployeeId());
+
+        // ReportingStructure entity = new ReportingStructure(employee, employeeRepository);
         // Read checks
         ReportingStructure readReportingStructure = restTemplate.getForEntity(reportingStructureIdUrl, ReportingStructure.class, testReportingStructure.getEmployee().getEmployeeId()).getBody();
         assertEquals(readReportingStructure.getNumberOfReports(), 4);
-        assertEquals(readReportingStructure.getEmployee(), employee);
+        assertEquals(readReportingStructure.getEmployee().getEmployeeId(), employee.getEmployeeId());
     }
 }

@@ -42,7 +42,7 @@ public class CompensationServiceImplTest {
     }
 
     @Test
-    public void testCreateReadUpdate() {
+    public void testCreateRead() {
         Compensation testCompensation = new Compensation();
         Employee employee = new Employee();
         employee.setEmployeeId("16a596ae-edd3-4847-99fe-c4518e82c86e");
