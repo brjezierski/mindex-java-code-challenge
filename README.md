@@ -84,3 +84,31 @@ Compensation from the persistence layer.
 
 ## Delivery
 Please upload your results to a publicly accessible Git repo. Free ones are provided by Github and Bitbucket.
+
+
+## Task 1
+
+I added additional classes:
+data/ReportingStructure.java
+service/ReportingStructureService.java
+service/impl/ReportingStructureServiceImpl.java
+controller/ReportingStructureConroller.java
+
+In order to provide the right structure within the MVC framework for the new type. The core method is recursive getDirectReports(Employee) in ReportingStructure.java. It recursively explores all the reports of the root employer, as well as the reports of the root's reports and so on. While exploring it increments a global counter numberOfReports.
+
+It can be tested with http://localhost:8080/reporting-structure/16a596ae-edd3-4847-99fe-c4518e82c86f
+
+
+## Task 2
+
+I added additional classes:
+data/Compensation.java
+dao/EmployeeRepository.java
+service/CompensationService.java
+service/impl/CompensationServiceImpl.java
+controller/CompensationConroller.java
+DataBootstrap.java
+
+## Testing
+
+In DataBootstrapTest.java I added a JUnit Test for retrieving a Compensation object for John Lennon from json. The Test has been passed.
