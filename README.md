@@ -111,4 +111,4 @@ The implementation of <em>Compensation</em> type is leargely based on the implem
 
 ## Testing
 
-In DataBootstrapTest.java I added a JUnit Test for retrieving a Compensation object for John Lennon from json. In service/impl, I added JUnit tests for read in  ReportingStructure as well as create and read in Compensation. They all pass.
+In DataBootstrapTest.java, I added a JUnit Test for retrieving a <em>Compensation</em> object for John Lennon from JSON. In service/impl, I added JUnit tests for read in <em>ReportingStructure</em> as well as create and read in <em>Compensation</em>. They all pass.
